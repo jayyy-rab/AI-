@@ -1,0 +1,26 @@
+{
+  "name": "ai-vision-voice-assistant",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev:frontend\"",
+    "dev:frontend": "npm run dev -w frontend -- --port 5173 --strictPort",
+    "dev:server": "npm run dev -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w frontend",
+    "build": "npm run build -w server && npm run build -w frontend",
+    "docs:smoke": "node scripts/docs-smoke.mjs",
+    "frontend:smoke": "node scripts/frontend-smoke.mjs",
+    "browser:smoke": "node scripts/browser-smoke.mjs",
+    "provider:smoke": "node scripts/provider-smoke.mjs",
+    "startup:smoke": "node scripts/startup-smoke.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "check:openai": "node scripts/check-openai-provider.mjs",
+    "verify": "npm run typecheck && npm run build && npm run docs:smoke && npm run frontend:smoke && npm run provider:smoke && npm run startup:smoke && npm run smoke && npm audit"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
