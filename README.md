@@ -2,6 +2,20 @@
 
 一个面向比赛演示的 Web Demo：浏览器采集摄像头和麦克风，端侧抽帧压缩后通过 WebSocket 发送到后端，后端用统一 Provider 接口返回 AI 文本回复，并记录会话用量。
 
+## HR 快速运行
+
+HR 在 Windows 电脑上本地运行 demo 时，请优先阅读 [START_HERE_HR.md](START_HERE_HR.md)。
+
+最短命令链路：
+
+```bash
+npm ci
+npm run hr:check
+npm run hr:start
+```
+
+默认使用 `AI_PROVIDER=mock`，不需要配置 OpenAI API Key。
+
 ## 功能状态
 
 | 模块 | 状态 | 说明 |
